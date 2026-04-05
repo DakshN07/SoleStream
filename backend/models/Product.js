@@ -20,6 +20,7 @@ const productSchema = mongoose.Schema({
   images: [{ type: String, required: true }],
   modelUrl: { type: String }, // GLTF url
   stock: { type: Number, required: true, default: 0 },
+  department: { type: String, default: 'shoes' },
   category: { type: String, required: true },
   ratings: [ratingSchema],
   ratingAvg: { type: Number, required: true, default: 0 },

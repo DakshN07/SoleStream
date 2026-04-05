@@ -5,10 +5,14 @@ const Product = require('../models/Product');
 // @access  Public
 const getProducts = async (req, res) => {
   try {
-    const { keyword, brand, minPrice, maxPrice, size, color, sort } = req.query;
+    const { keyword, brand, minPrice, maxPrice, size, color, sort, department } = req.query;
 
     // Build query object
     const query = {};
+
+    if (department) {
+      query.department = department;
+    }
 
     if (keyword) {
       query.name = { $regex: keyword, $options: 'i' };

@@ -34,11 +34,11 @@ const ProductCard = ({ product }) => {
 
       <div className="mt-4 flex justify-between items-start">
         <div>
-          <h3 className="text-lg font-medium text-gray-900 group-hover:text-primary transition">{product.name}</h3>
-          <p className="text-sm text-gray-500">{product.brand}</p>
+          <h3 className="text-lg font-medium text-gray-900 dark:text-gray-200 group-hover:text-primary transition">{product.name}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{product.brand}</p>
         </div>
         <div className="text-right">
-          <p className="text-lg font-bold">₹{product.price}</p>
+          <p className="text-lg font-bold dark:text-gray-100">₹{product.price}</p>
           <div className="flex items-center gap-1 mt-1 text-yellow-400">
             <Star size={14} fill="currentColor" />
             <span className="text-xs text-gray-500 font-medium ml-1">{product.ratingAvg.toFixed(1)}</span>
@@ -47,7 +47,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className={`mt-3 transform transition-all duration-300 ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`}>
-         <Link to={`/product/${product._id}`} className="w-full block text-center bg-gray-900 text-white tracking-widest uppercase text-sm font-semibold py-3 flex items-center justify-center gap-2 hover:bg-primary transition rounded-sm">
+         <Link to={`/product/${product._id}`} className="w-full block text-center bg-gray-900 dark:bg-white dark:text-gray-900 dark:hover:bg-primary text-white tracking-widest uppercase text-sm font-semibold py-3 flex items-center justify-center gap-2 hover:bg-primary transition rounded-sm">
            <ShoppingBag size={16} /> Quick View
          </Link>
       </div>
