@@ -37,7 +37,7 @@ const Home = () => {
                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
              >
                 <img 
-                  src="https://images.unsplash.com/photo-1698288863690-67a6d9154a43?q=80&w=1000&auto=format&fit=crop" 
+                  src="https://image.pollinations.ai/prompt/premium_slipper_sandal_floating_in_void_dark_aesthetic?width=1000&height=1000&seed=991&nologo=true" 
                   alt="Floating Slipper" 
                   className="max-w-full h-auto drop-shadow-2xl rounded-full border-4 border-gray-800"
                   style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)' }}
