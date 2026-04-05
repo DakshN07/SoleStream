@@ -33,8 +33,12 @@ app.use(helmet());
 app.set('io', io);
 
 // Basic Route for testing
+app.get('/', (req, res) => {
+  res.json({ message: 'SoleStream API is Live and Running' });
+});
+
 app.get('/api/v1', (req, res) => {
-  res.json({ message: 'Welcome to SoleStream API' });
+  res.json({ message: 'Welcome to SoleStream API v1' });
 });
 
 // Import Routes
