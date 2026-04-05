@@ -86,10 +86,14 @@ const Home = () => {
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-end mb-12 border-b border-gray-100 dark:border-gray-800 pb-4">
           <div>
-            <h2 className="text-4xl font-bold tracking-tighter text-gray-900 dark:text-gray-100">New Arrivals</h2>
-            <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">Fresh off the line. Grab them before they're gone.</p>
+            <h2 className="text-4xl font-bold tracking-tighter text-gray-900 dark:text-gray-100">
+              {mode === 'slippers' ? 'Featured Slides' : 'New Arrivals'}
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">
+              {mode === 'slippers' ? 'Premium comfort for indoor and outdoor living.' : 'Fresh off the line. Grab them before they\'re gone.'}
+            </p>
           </div>
-          <Link to="/gallery?sort=Newest" className="hidden md:block text-primary font-bold uppercase tracking-widest text-sm hover:underline">
+          <Link to="/gallery" className="hidden md:block text-primary font-bold uppercase tracking-widest text-sm hover:underline">
             View All
           </Link>
         </div>
@@ -104,6 +108,47 @@ const Home = () => {
           )}
         </div>
       </section>
+
+      {/* Secret Extra Section for Slippers ONLY */}
+      {mode === 'slippers' && (
+        <section className="py-24 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-5xl font-black tracking-tighter text-gray-900 dark:text-white mb-6 uppercase">The Slide <br/><span className="text-primary italic">Collection</span></h2>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                    Elevating the art of lounging. Our exclusive collection of slides and slippers combines architectural silhouettes with cloud-like comfort. Designed for the discerning teacher, traveler, and trendsetter.
+                  </p>
+                  <div className="flex gap-4">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 flex-1">
+                      <span className="text-primary font-bold text-2xl">08+</span>
+                      <p className="text-sm text-gray-500 uppercase tracking-tighter mt-1">Local Icons</p>
+                    </div>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 flex-1">
+                      <span className="text-primary font-bold text-2xl">24/7</span>
+                      <p className="text-sm text-gray-500 uppercase tracking-tighter mt-1">Soft Support</p>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div 
+                  className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                >
+                  <img src="/images/slippers/slp3.jpg" alt="Collection detail" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                    <p className="text-white font-medium italic">"Architecture you can wear on your feet."</p>
+                  </div>
+                </motion.div>
+             </div>
+          </div>
+        </section>
+      )}
 
     </div>
   );

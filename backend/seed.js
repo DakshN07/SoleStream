@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import Product from './models/Product.js';
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const Product = require('./models/Product');
 
 dotenv.config();
 
@@ -30,7 +30,6 @@ const slp5 = "/images/slippers/slp5.jpg";
 const slp6 = "/images/slippers/slp6.jpg";
 const slp7 = "/images/slippers/slp7.png";
 const slp8 = "/images/slippers/slp8.png";
-
 
 const mockProducts = [
   // SNEAKERS (15 items)
@@ -110,7 +109,7 @@ const mockProducts = [
     images: [snk15], colors: ["White", "Black"], department: "shoes", category: "Classic", stock: 20, sizes: [8, 9]
   },
 
-  // USER UPLOADED SLIPPERS (8 items exactly matched to local filesystem extensions)
+  // USER UPLOADED SLIPPERS (8 items)
   {
     name: "Gucci Web Slide Slipper", brand: "Gucci", price: 24999,
     description: "A classic rubber slide sandal.",
@@ -155,9 +154,13 @@ const mockProducts = [
 
 const seedDatabase = async () => {
   try {
-    const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/solestream';
+    const mongoUri = process.env.MONGO_URI;
+    if (!mongoUri) {
+       console.error('MONGO_URI not found in env');
+       process.exit(1);
+    }
     await mongoose.connect(mongoUri);
-    console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB Atlas');
 
     await Product.deleteMany({});
     await Product.insertMany(mockProducts);
