@@ -4,7 +4,7 @@ import Product from './models/Product.js';
 
 dotenv.config();
 
-// Completely Distinct Sneaker Images
+// Completely Distinct Sneaker Images (Unsplash Fallbacks)
 const snk1 = "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80";
 const snk2 = "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80";
 const snk3 = "https://images.unsplash.com/photo-1664188099307-e435cf6d3bc8?w=800&q=80";
@@ -21,17 +21,15 @@ const snk13 = "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=80
 const snk14 = "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80";
 const snk15 = "https://images.unsplash.com/photo-1620138546344-7b2c38516bef?w=800&q=80";
 
-// Completely Localized Slipper Images
+// Completely Localized Slipper Images (User-Provided)
 const slp1 = "/images/slippers/slp1.jpg";
 const slp2 = "/images/slippers/slp2.jpg";
 const slp3 = "/images/slippers/slp3.jpg";
-const slp4 = "/images/slippers/slp4.jpg";
+const slp4 = "/images/slippers/slp4.png";
 const slp5 = "/images/slippers/slp5.jpg";
 const slp6 = "/images/slippers/slp6.jpg";
-const slp7 = "/images/slippers/slp7.jpg";
-const slp8 = "/images/slippers/slp8.jpg";
-const slp9 = "/images/slippers/slp9.jpg";
-const slp10 = "/images/slippers/slp10.jpg";
+const slp7 = "/images/slippers/slp7.png";
+const slp8 = "/images/slippers/slp8.png";
 
 
 const mockProducts = [
@@ -112,7 +110,7 @@ const mockProducts = [
     images: [snk15], colors: ["White", "Black"], department: "shoes", category: "Classic", stock: 20, sizes: [8, 9]
   },
 
-  // SLIPPERS (10 items - Strictly no sneakers)
+  // USER UPLOADED SLIPPERS (8 items exactly matched to local filesystem extensions)
   {
     name: "Gucci Web Slide Slipper", brand: "Gucci", price: 24999,
     description: "A classic rubber slide sandal.",
@@ -152,16 +150,6 @@ const mockProducts = [
     name: "Nike Victori One", brand: "Nike", price: 2495,
     description: "Must-have classic shower slides.",
     images: [slp8], colors: ["White", "Black"], department: "slippers", category: "Slides", stock: 110, sizes: [8, 9, 10]
-  },
-  {
-    name: "Adidas Adilette Comfort", brand: "Adidas", price: 2999,
-    description: "Cloudfoam plus cushioning for absolute comfort.",
-    images: [slp9], colors: ["Black", "White"], department: "slippers", category: "Slides", stock: 80, sizes: [8, 9]
-  },
-  {
-    name: "Ugg Tasman Slipper", brand: "Ugg", price: 8500,
-    description: "Lined with plush sheepskin and upcycled wool.",
-    images: [slp10], colors: ["Chestnut"], department: "slippers", category: "House", stock: 65, sizes: [7, 8, 9]
   }
 ];
 
@@ -173,7 +161,7 @@ const seedDatabase = async () => {
 
     await Product.deleteMany({});
     await Product.insertMany(mockProducts);
-    console.log('Successfully seeded database with 15 Sneakers and 10 completely distinct Slippers!');
+    console.log('Successfully seeded database with 15 Sneakers and 8 locally fetched Slippers!');
 
     process.exit(0);
   } catch (error) {
