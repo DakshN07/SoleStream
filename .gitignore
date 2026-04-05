@@ -1,0 +1,9 @@
+node_modules/
+.env
+dist/
+build/
+.DS_Store
+
+# Ignore all raw unused models to save upload limits for GitHub
+Shoes models/
+frontend/public/models/*.zip
