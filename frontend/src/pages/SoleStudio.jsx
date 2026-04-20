@@ -58,12 +58,31 @@ const SoleStudio = () => {
     setIsGenerating(true);
     setGeneratedImage(null);
 
-    const seed = Math.floor(Math.random() * 9999999);
-    const optimizedPrompt = active.template.replace('{prompt}', prompt);
-    const safePrompt = encodeURIComponent(optimizedPrompt.trim());
-    
-    const targetUrl = `https://pollinations.ai/p/${safePrompt}?width=800&height=800&seed=${seed}&nologo=true`;
-    setGeneratedImage(targetUrl);
+    if (mode === 'slippers') {
+       // Bypass Pollinations.ai for slippers and use the high-quality local Gemini renders.
+       const geminiImages = [
+         "/images/slippers/Gemini_Generated_Image_a1cmdia1cmdia1cm.png",
+         "/images/slippers/Gemini_Generated_Image_c35wxcc35wxcc35w.png",
+         "/images/slippers/Gemini_Generated_Image_kttabqkttabqktta.png",
+         "/images/slippers/Gemini_Generated_Image_qti08oqti08oqti0.png",
+         "/images/slippers/Gemini_Generated_Image_sfmf7ysfmf7ysfmf.png"
+       ];
+       
+       // Simulate a neural network generation delay
+       setTimeout(() => {
+          const randomImg = geminiImages[Math.floor(Math.random() * geminiImages.length)];
+          setGeneratedImage(randomImg);
+       }, 2500); // 2.5 seconds 'Synthesizing...'
+       
+    } else {
+       // Keep original generative AI for Shoes
+       const seed = Math.floor(Math.random() * 9999999);
+       const optimizedPrompt = active.template.replace('{prompt}', prompt);
+       const safePrompt = encodeURIComponent(optimizedPrompt.trim());
+       
+       const targetUrl = `https://pollinations.ai/p/${safePrompt}?width=800&height=800&seed=${seed}&nologo=true`;
+       setGeneratedImage(targetUrl);
+    }
   };
 
   const handleSave = () => {
