@@ -149,6 +149,16 @@ const mockProducts = [
     name: "Nike Victori One", brand: "Nike", price: 2495,
     description: "Must-have classic shower slides.",
     images: [slp8], colors: ["White", "Black"], department: "slippers", category: "Slides", stock: 110, sizes: [8, 9, 10]
+  },
+  {
+    name: "OOFOS OOriginal Recovery Sandal", brand: "OOFOS", price: 5999,
+    description: "Revolutionary OOfoam™ technology absorbs 37% more impact than traditional footwear foam to reduce the stress on your feet and joints. Perfect orthopedic slide for post-workout or long day recovery.",
+    images: ["https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80"], colors: ["Black"], department: "slippers", category: "Orthopedic", stock: 85, sizes: [7, 8, 9, 10]
+  },
+  {
+    name: "Vionic Relax Orthotic Slipper", brand: "Vionic", price: 7499,
+    description: "Award-winning orthopedic slippers featuring a podiatrist-designed footbed. The exclusive biomechanical technology promotes natural alignment from the ground up to relieve plantar fasciitis and heel pain.",
+    images: ["https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=800&q=80"], colors: ["Grey"], department: "slippers", category: "Orthopedic", stock: 40, sizes: [6, 7, 8, 9]
   }
 ];
 
