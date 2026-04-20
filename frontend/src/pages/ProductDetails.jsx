@@ -4,11 +4,13 @@ import ThreeScene from '../components/ThreeScene';
 import useCartStore from '../store/cartStore';
 import useSocketStore from '../store/socketStore';
 import useAuthStore from '../store/authStore';
-import { ShoppingBag, ArrowLeft, Star, Heart, MessageSquare } from 'lucide-react';
+import useModeStore from '../store/modeStore';
+import { ShoppingBag, ArrowLeft, Star, Heart, MessageSquare, Activity } from 'lucide-react';
 import toast from 'react-hot-toast';
 import api from '../services/api';
 
 const ProductDetails = () => {
+  const { mode } = useModeStore();
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
@@ -206,6 +208,51 @@ const ProductDetails = () => {
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-sm">
               {product.description || `Engineered for maximum energy return and supreme comfort. The ${product.name} blends premium materials with responsive cushioning.`}
             </p>
+
+            {/* Smart Recovery OS - Exclusive Slipper Feature */}
+            {mode === 'slippers' && (
+              <div className="bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-xl p-5 mt-6 shadow-inner">
+                <div className="flex items-center gap-2 mb-4">
+                  <Activity size={16} className="text-primary animate-pulse" />
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-gray-900 dark:text-white">Biometric Recovery Profile</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-1">
+                      <span>Dynamic Arch Map</span>
+                      <span className="text-primary">98% Match</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-1.5">
+                      <div className="bg-primary h-1.5 rounded-full" style={{ width: '98%' }}></div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex justify-between text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-1">
+                      <span>Heel Strike Absorption</span>
+                      <span className="text-purple-500">Tier 1</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-1.5">
+                      <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: '100%' }}></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-1">
+                      <span>Thermo-Regulation</span>
+                      <span className="text-blue-400">Active</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-1.5">
+                      <div className="bg-gradient-to-r from-blue-400 to-cyan-300 h-1.5 rounded-full w-full"></div>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-[10px] text-gray-400 mt-4 italic font-medium leading-relaxed">
+                  *Engineered with proprietary ComfortCore™ technology. Do not compare with generic foam bases.
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-4 sticky bottom-0 bg-white dark:bg-gray-800 lg:pb-0">
