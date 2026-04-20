@@ -210,7 +210,4 @@ const SoleStudio = () => {
   );
 };
 
-export default SoleStudio; );
-};
-
 export default SoleStudio;
