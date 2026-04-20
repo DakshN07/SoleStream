@@ -34,13 +34,13 @@ const SoleStudio = () => {
       accent: "The Future.",
       desc: "Welcome to the Comfort Lab. Engineer the ultimate relaxation piece. Our neural net is now optimized for high-end slides, modular clogs, and ergonomic lounge footwear.",
       predefined: [
-        "A high-end, customizable modular slider slipper resting on a minimalist concrete pedestal. matte charcoal base, neon-blue straps, honeycomb sole, cinematographic lighting.",
-        "Modern reimagining of a traditional Indian Kolhapuri chappal. deep mahogany leather, laser-cut geometric patterns, metallic gold hardware, premium workshop background.",
-        "Futuristic, ultra-comfortable slipper made of translucent 'cloud-gel'. ergonomic and minimalist, DIY 'snap-on' charms, airy studio space, soft pastel lighting.",
-        "Chunky, streetwear-style slipper with a bold platform sole. customizable Velcro patches, rugged tactical outsole, saffron and teal graffiti colors.",
-        "Eco-friendly, customizable slide made from woven hemp. natural cork footbed, engraved personalized name on heel, warm sunset lighting, macro shot."
+        "Minimalist charcoal modular slide slipper, neon-blue accents, resting on a pedestal, solo object, product photography.",
+        "Traditional Kolhapuri chappal made of premium deep mahogany leather, isolated on a workshop table, detailed stitching.",
+        "Futuristic ergonomic slide made of translucent cloud-gel, DIY snap-on charms, soft pastel studio lighting, isolated.",
+        "Chunky streetwear platform slipper, tactical outsole, saffron and teal graffiti colors, product shot, no people.",
+        "Eco-friendly woven hemp slide slipper, natural cork footbed, engraved heel detail, warm sunset studio light, isolated."
       ],
-      template: "premium modular slide slipper luxury clog, highly detailed, {prompt}, studio lighting, hyperrealistic 8k",
+      template: "High-end product photography, solo {prompt}, isolated on a minimalist pedestal, hyper-detailed materials, 8k, studio lighting, --no human, person, model, pants, clothes, legs, feet",
       fallbacks: [
         "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=800&q=80",
         "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
