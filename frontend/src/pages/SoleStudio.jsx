@@ -24,9 +24,9 @@ const SoleStudio = () => {
       ],
       template: "concept sneaker shoe, highly detailed, {prompt}, studio lighting, hyperrealistic 8k",
       fallbacks: [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
         "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&q=80",
-        "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80",
-        "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=800&q=80"
+        "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80"
       ]
     },
     slippers: {
@@ -43,8 +43,8 @@ const SoleStudio = () => {
       template: "premium modular slide slipper luxury clog, highly detailed, {prompt}, studio lighting, hyperrealistic 8k",
       fallbacks: [
         "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=800&q=80",
-        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80", 
-        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80"
+        "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
+        "https://images.unsplash.com/photo-1621251304560-6d427771f25e?w=800&q=80"
       ]
     }
   };
