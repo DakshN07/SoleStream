@@ -34,7 +34,9 @@ const Header = () => {
           <nav className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest dark:text-gray-200">
             <Link to="/gallery" className="hover:text-primary transition">Shop {mode === 'slippers' ? 'Slides' : 'Kicks'}</Link>
             <Link to="/gallery?sort=Newest" className="hover:text-primary transition">New Arrivals</Link>
-            <Link to="/studio" className="hover:text-primary transition flex items-center gap-1"><Sparkles size={14} className="text-primary"/> Studio</Link>
+            <Link to="/studio" className="hover:text-primary transition flex items-center gap-1">
+              <Sparkles size={14} className="text-primary"/> {mode === 'slippers' ? 'Comfort Lab' : 'Studio'}
+            </Link>
           </nav>
 
           {/* Icons */}
