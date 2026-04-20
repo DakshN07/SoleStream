@@ -59,19 +59,23 @@ const SoleStudio = () => {
     setGeneratedImage(null);
 
     if (mode === 'slippers') {
-       // Bypass Pollinations.ai for slippers and use the high-quality local Gemini renders.
-       const geminiImages = [
-         "/images/slippers/Gemini_Generated_Image_a1cmdia1cmdia1cm.png",
-         "/images/slippers/Gemini_Generated_Image_c35wxcc35wxcc35w.png",
-         "/images/slippers/Gemini_Generated_Image_kttabqkttabqktta.png",
-         "/images/slippers/Gemini_Generated_Image_qti08oqti08oqti0.png",
-         "/images/slippers/Gemini_Generated_Image_sfmf7ysfmf7ysfmf.png"
-       ];
+       // Match specific PromptX.png to the predefined prompts index
+       // If custom prompt, randomize one of the 5.
+       const promptIndex = active.predefined.indexOf(prompt);
+       let selectedImg = '';
+       
+       if (promptIndex !== -1) {
+          // Predefined prompts are 0-indexed, but images start at Prompt1.png
+          selectedImg = `/images/slippers/Prompt${promptIndex + 1}.png`;
+       } else {
+          // Custom entry - select randomly from the prompt 1-5 gallery
+          const randomIdx = Math.floor(Math.random() * 5) + 1;
+          selectedImg = `/images/slippers/Prompt${randomIdx}.png`;
+       }
        
        // Simulate a neural network generation delay
        setTimeout(() => {
-          const randomImg = geminiImages[Math.floor(Math.random() * geminiImages.length)];
-          setGeneratedImage(randomImg);
+          setGeneratedImage(selectedImg);
        }, 2500); // 2.5 seconds 'Synthesizing...'
        
     } else {
